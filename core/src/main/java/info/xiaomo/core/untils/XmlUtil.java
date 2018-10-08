@@ -11,7 +11,7 @@ import java.net.URL;
 import java.util.List;
 
 /**
- * author advance
+ * @author : xiaomo
  */
 public class XmlUtil {
     /**
@@ -90,11 +90,13 @@ public class XmlUtil {
             List list = document.selectNodes(nodes);
             for (Object aList : list) {
                 Attribute attribute = (Attribute) aList;
-                if (attribute.getName().equals(attributeName))
+                if (attribute.getName().equals(attributeName)) {
                     attribute.setValue(value);
+                }
             }
             XMLWriter output;
-            if (outXml != null) { //指定输出文件
+            //指定输出文件
+            if (outXml != null) {
                 output = new XMLWriter(new FileWriter(new File(outXml)));
             } else { //输出文件为原文件
                 output = new XMLWriter(new FileWriter(inputXml));

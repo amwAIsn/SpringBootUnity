@@ -16,10 +16,10 @@ import java.io.*;
  * Today the best performance  as tomorrow newest starter!
  * Created by IntelliJ IDEA.
  *
- * author: xiaomo
+ * @author : xiaomo
  * github: https://github.com/xiaomoinfo
  * email: xiaomo@xiaomo.info
-
+ * <p>
  * Date: 15/9/6 16:05
  * Description: 序列化通用方法
  * Copyright(©) 2015 by xiaomo.
@@ -30,7 +30,9 @@ public class SerializeUtil {
      * 序列化
      */
     public static String serialize(Object object) {
-        if (object == null) return null;
+        if (object == null) {
+            return null;
+        }
         ObjectOutputStream oos;
         ByteArrayOutputStream baos;
         try {

@@ -11,7 +11,8 @@ import java.util.StringTokenizer;
  * Today the best performance  as tomorrow newest starter!
  * Created by IntelliJ IDEA.
  * <p>
- * author: xiaomo
+ *
+ * @author : xiaomo
  * github: https://github.com/syoubaku
  * email: xiaomo@xiamoo.info
  * QQ_NO: 83387856
@@ -33,26 +34,6 @@ public class SqlUtil {
         return StringUtils.join(paras, ',');
     }
 
-    /*
- *
- */
-    private String delSQlString(String sql) {
-        StringBuilder delSql = new StringBuilder("in(");
-        StringTokenizer Tokenizer = new StringTokenizer(sql, "|");
-
-        // 标记本身等于分隔符的特殊情况
-        delSql.append(Tokenizer.nextToken());
-        while (Tokenizer.hasMoreTokens()) {
-            delSql.append(Tokenizer.nextToken()).append(",");
-        }
-        delSql = new StringBuilder(delSql.substring(0, delSql.length() - 1) + ")");
-        return delSql.toString();
-    }
-
-    private String delNewSQlString(String sql) {
-        return "in (" + sql.replace('|', ',') + ")";
-    }
-
     /**
      * sql语句 处理
      *
@@ -61,9 +42,27 @@ public class SqlUtil {
      * @return 处理后的sql语句
      */
     public static String sql4DB(String sql, String dbtype) {
-        if (!dbtype.equalsIgnoreCase("oracle")) {
+        String oracle = "oracle";
+        if (!oracle.equalsIgnoreCase(dbtype)) {
             sql = StringUtil.toISO(sql);
         }
         return sql;
+    }
+
+    private String delNewSQlString(String sql) {
+        return "in (" + sql.replace('|', ',') + ")";
+    }
+
+    private String delSQlString(String sql) {
+        StringBuilder delSql = new StringBuilder("in(");
+        StringTokenizer tokenizer = new StringTokenizer(sql, "|");
+
+        // 标记本身等于分隔符的特殊情况
+        delSql.append(tokenizer.nextToken());
+        while (tokenizer.hasMoreTokens()) {
+            delSql.append(tokenizer.nextToken()).append(",");
+        }
+        delSql = new StringBuilder(delSql.substring(0, delSql.length() - 1) + ")");
+        return delSql.toString();
     }
 }

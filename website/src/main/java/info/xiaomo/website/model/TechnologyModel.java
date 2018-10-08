@@ -14,10 +14,10 @@ import javax.persistence.Table;
  * Today the best performance  as tomorrow newest starter!
  * Created by IntelliJ IDEA.
  *
- * author: xiaomo
+ * @author : xiaomo
  * github: https://github.com/xiaomoinfo
  * email: xiaomo@xiaomo.info
-
+ * <p>
  * Date: 2016/11/3 14:27
  * Copyright(©) 2015 by xiaomo.
  **/

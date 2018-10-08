@@ -15,10 +15,10 @@ import java.io.Serializable;
  * Today the best performance  as tomorrow newest starter!
  * Created by IntelliJ IDEA.
  *
- * author: xiaomo
+ * @author : xiaomo
  * github: https://github.com/xiaomoinfo
  * email: xiaomo@xiaomo.info
-
+ * <p>
  * Date: 2016/4/1 17:36
  * Copyright(©) 2015 by xiaomo.
  **/
@@ -50,6 +50,9 @@ public class UserModel extends BaseModel implements Serializable {
     @Column(name = "Phone")
     private Long phone = 0L;
 
+    @Column(name = "ValidateCode")
+    private String validateCode = "";
+
     @Column(name = "ImgUrl")
     private String imgUrl = "";
 
@@ -57,5 +60,7 @@ public class UserModel extends BaseModel implements Serializable {
     private String address = "";
 
     @Column(name = "RegisterTime")
-    private Long RegisterTime = 0L;
+    private Long registerTime = 0L;
+
+
 }

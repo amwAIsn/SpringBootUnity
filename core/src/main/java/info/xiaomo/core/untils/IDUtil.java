@@ -4,6 +4,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
+/**
+ * @author : xiaomo
+ */
 public class IDUtil {
     private static final Logger LOGGER = LoggerFactory.getLogger(IDUtil.class);
     /**
@@ -32,7 +35,8 @@ public class IDUtil {
         synchronized (ID_LOCK) {
             ID += 1;
             tempId = ID;
-            if (ID > 65000) {
+            int i = 65000;
+            if (ID > i) {
                 ID = 0;
                 CURRENT_SECOND += 1L;
             }

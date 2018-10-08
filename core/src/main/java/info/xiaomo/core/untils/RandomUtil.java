@@ -16,12 +16,13 @@ import java.util.concurrent.ThreadLocalRandom;
 /**
  * 随机工具类
  *
- * author xiaomo
+ * @author : xiaomo
  */
 public class RandomUtil {
     private static final Logger LOGGER = LoggerFactory.getLogger(RandomUtil.class);
     private static final String NUM_S = "0123456789";
     private static final String STR_S = "abcdefghijklmnopqrstuvwxyz0123456789";
+
     /**
      * 随机产生min到max之间的一个整数值，包含min和max
      */
@@ -120,7 +121,8 @@ public class RandomUtil {
             return -1;
         }
         int totalProb = newProbs.getLast();
-        if (totalProb == 0) {// 总概率为0
+        // 总概率为0
+        if (totalProb == 0) {
             return -1;
         }
         int random = random(0, totalProb - 1);
@@ -152,7 +154,8 @@ public class RandomUtil {
     }
 
     /**
-     *  生成盐值
+     * 生成盐值
+     *
      * @return
      */
     public static String createSalt() {
@@ -162,6 +165,7 @@ public class RandomUtil {
 
     /**
      * 生成盐值
+     *
      * @param count
      * @return
      */
@@ -172,6 +176,6 @@ public class RandomUtil {
     public static void main(String[] args) {
         String salt = createSalt();
         System.out.println(salt);
-        System.out.println(MD5Util.encode("xiaomo",salt));
+        System.out.println(Md5Util.encode("xiaomo", salt));
     }
 }

@@ -1,7 +1,7 @@
 package info.xiaomo.mongodb.controller;
 
-import info.xiaomo.core.constant.CodeConst;
 import info.xiaomo.core.base.Result;
+import info.xiaomo.core.constant.CodeConst;
 import info.xiaomo.mongodb.model.MongoUser;
 import info.xiaomo.mongodb.service.MongoUserService;
 import io.swagger.annotations.Api;
@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.*;
  * Today the best performance  as tomorrow newest starter!
  * Created by IntelliJ IDEA.
  *
- * author: xiaomo
+ * @author : xiaomo
  * github: https://github.com/xiaomoinfo
  * email: xiaomo@xiaomo.info
-
+ * <p>
  * Date: 2016/11/15 15:49
  * Copyright(©) 2015 by xiaomo.
  **/

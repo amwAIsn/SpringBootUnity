@@ -11,26 +11,68 @@ import java.util.List;
  * Today the best performance  as tomorrow newest starter!
  * Created by IntelliJ IDEA.
  *
- * author: xiaomo
+ * @author : xiaomo
  * github: https://github.com/xiaomoinfo
  * email: xiaomo@xiaomo.info
-
+ * <p>
  * Date: 2016/4/1119:49
  * Copyright(©) 2015 by xiaomo.
  **/
 public interface ChangeLogService {
 
+    /**
+     * 根据id查
+     *
+     * @param id
+     * @return
+     */
     ChangeLogModel findById(Long id);
 
+    /**
+     * 根据名字查
+     *
+     * @param name
+     * @return
+     */
     ChangeLogModel findByName(String name);
 
-    Page<ChangeLogModel> findAll(int start , int pageSize);
+    /**
+     * find all
+     *
+     * @param start
+     * @param pageSize
+     * @return
+     */
+    Page<ChangeLogModel> findAll(int start, int pageSize);
 
+    /**
+     * find all
+     *
+     * @return
+     */
     List<ChangeLogModel> findAll();
 
+    /**
+     * add
+     *
+     * @param model
+     * @return
+     */
     ChangeLogModel add(ChangeLogModel model);
 
+    /**
+     * update
+     *
+     * @param model
+     * @return
+     */
     ChangeLogModel update(ChangeLogModel model);
 
+    /**
+     * delete
+     *
+     * @param id
+     * @return
+     */
     ChangeLogModel delete(Long id);
 }

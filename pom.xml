@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>info.xiaomo</groupId>
     <artifactId>xiaomo</artifactId>
-    <version>2017.1</version>
+    <version>2017.2</version>
 
     <!-- 模块 -->
     <modules>
@@ -30,14 +30,13 @@
         <module>mybatis</module>
         <!-- freemarker -->
         <module>freemarker</module>
-        <!-- velocity -->
-        <module>velocity</module>
+        <!-- thymeleaf -->
+        <module>thymeleaf</module>
         <!-- 多数据源 -->
         <module>multipleSource</module>
-        <!-- 数据接口 -->
-        <module>api</module>
         <!-- 爬虫 -->
         <module>crawler</module>
+        <module>javase</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -48,24 +47,7 @@
         </developer>
     </developers>
 
-    <!-- spring boot starter 版本 -->
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.5.6.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
-    </parent>
-
     <repositories>
-        <!--<repository>-->
-            <!--<id>inner-release</id>-->
-            <!--<name>inner-release</name>-->
-            <!--<layout>default</layout>-->
-            <!--<url>http://192.168.1.62:8081/nexus/content/repositories/releases/</url>-->
-            <!--<snapshots>-->
-                <!--<enabled>false</enabled>-->
-            <!--</snapshots>-->
-        <!--</repository>-->
         <repository>
             <id>central</id>
             <name>aliyun maven</name>
@@ -102,7 +84,7 @@
         <!-- html  -->
         <jsoup.version>1.10.1</jsoup.version>
         <!-- spring-boot version -->
-        <spring-boot.version>1.5.6.RELEASE</spring-boot.version>
+        <spring-boot.version>2.0.0.RELEASE</spring-boot.version>
         <!-- compiler-plugin version -->
         <maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
         <!-- surefile-plugin test util -->
@@ -127,6 +109,12 @@
     <!-- 相关依赖 -->
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-parent</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+            </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-web</artifactId>
@@ -267,7 +255,6 @@
                     </execution>
                 </executions>
             </plugin>
-
         </plugins>
     </build>
 </project>

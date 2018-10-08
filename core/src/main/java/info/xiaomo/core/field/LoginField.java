@@ -6,7 +6,7 @@ package info.xiaomo.core.field;
  * Today the best performance  as tomorrow newest starter!
  * Created by IntelliJ IDEA.
  *
- * author: xiaomo
+ * @author : xiaomo
  * github: https://github.com/xiaomoinfo
  * email: xiaomo@xiaomo.info(83387856)
  * Date: 2016/1/8 13:16
@@ -14,54 +14,49 @@ package info.xiaomo.core.field;
  * Copyright(©) 2015 by xiaomo.
  */
 public interface LoginField {
-    //qq
-    String QQOpenId = "openid";
-    String QQNickname = "nickname";
-    String QQPhotourl = "figureurl_qq_2";
-    String QQGender = "gender";
-    //sina
-    String sinaNickName = "screen_name";
-    String sinaOpenId = "id";
-    String sinaHeadPhoto = "avatar_large";
-    //github
-    String githubNickName = "name";
-    String githubOpenId = "id";
-    String githubHeadPhoto = "avatar_url";
-    String githubEmail = "email";
-    //baidu
-    String baiduNickName = "name";
-    String baiduOpenId = "id";
-    String baiduHeadPhoto = "avatar_url";
-    String baiduGender = "";
 
-    //osc
-    String oscNickName = "name";
-    String oscOpenId = "id";
-    String oscHeadPhoto = "avatar";
-    String oscEmail = "email";
-    String oscGender = "gender";
+    String Q_Q_OPEN_ID = "openid";
+    String Q_Q_NICKNAME = "nickname";
+    String Q_Q_PHOTOURL = "figureurl_qq_2";
+    String Q_Q_GENDER = "gender";
+    String SINA_NICK_NAME = "screen_name";
+    String SINA_OPEN_ID = "id";
+    String SINA_HEAD_PHOTO = "avatar_large";
+    String GITHUB_NICK_NAME = "name";
+    String GITHUB_OPEN_ID = "id";
+    String GITHUB_HEAD_PHOTO = "avatar_url";
+    String GITHUB_EMAIL = "email";
+    String BAIDU_NICK_NAME = "name";
+    String BAIDU_OPEN_ID = "id";
+    String BAIDU_HEAD_PHOTO = "avatar_url";
+    String BAIDU_GENDER = "";
 
-    //renren
-    String renrenNickName = "name";
-    String renrenOpenId = "id";
-    String renrenHeadPhoto = "url";
-    String renrenEmail = "email";
-    String renrenGender = "gender";
-    String renrenPhoto = "avatar";
+    String OSC_NICK_NAME = "name";
+    String OSC_OPEN_ID = "id";
+    String OSC_HEAD_PHOTO = "avatar";
+    String OSC_EMAIL = "email";
+    String OSC_GENDER = "gender";
 
-    String id = "id";
-    String password = "password";
-    String email = "email";
-    String emailVerify = "emailVerify";          // EmailVerifyConst 是否验证
-    String sex = "gender";                           //GenderType 性别
-    String birthday = "birthday";                           //GenderType 性别
-    String status = "status";                      // UserStatusType 帐号状态
-    String lastLoginTime = "lastLoginTime";
+    String RENREN_NICK_NAME = "name";
+    String RENREN_OPEN_ID = "id";
+    String RENREN_HEAD_PHOTO = "url";
+    String RENREN_EMAIL = "email";
+    String RENREN_GENDER = "gender";
+    String RENREN_PHOTO = "avatar";
 
-    String type = "type";                          //LoginTypeConst 登录类型
-    String contribution = "contribution";
-    String authority = "authority";             // OauthType 权限类型
-    String updateTime = "updateTime";
-    String createTime = "createTime";
-    String index = "/index.html";
+    String ID = "id";
+    String PASSWORD = "password";
+    String EMAIL = "email";
+    String EMAILVERIFY = "emailVerify";
+    String SEX = "gender";
+    String BIRTHDAY = "birthday";
+    String STATUS = "status";
+    String LAST_LOGIN_TIME = "lastLoginTime";
+
+    String TYPE = "type";
+    String CONTRIBUTION = "contribution";
+    String AUTHORITY = "authority";
+    String UPDATETIME = "updateTime";
+    String CREATETIME = "createTime";
+    String INDEX = "/index.html";
 }

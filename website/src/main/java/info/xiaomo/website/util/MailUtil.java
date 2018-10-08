@@ -23,10 +23,10 @@ import java.util.Properties;
  * Today the best performance  as tomorrow newest starter!
  * Created by IntelliJ IDEA.
  *
- * author: xiaomo
+ * @author : xiaomo
  * github: https://github.com/xiaomoinfo
  * email: xiaomo@xiaomo.info
-
+ * <p>
  * Date: 2016/4/511:00
  * Description: 发送邮件
  * Copyright(©) 2015 by xiaomo.
@@ -85,7 +85,7 @@ public class MailUtil {
      */
     public static String getContent(String email, String password, Configuration configuration) {
         Long now = TimeUtil.getNowOfMills();
-        Map<String, Object> data = new HashMap<>();
+        Map<String, Object> data = new HashMap<>(10);
         StringBuilder sb = new StringBuilder("http://localhost:8080/user/validate?email=");
         sb.append(email);
         sb.append("&password=");

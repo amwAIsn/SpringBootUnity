@@ -10,7 +10,7 @@ import java.util.regex.PatternSyntaxException;
 /**
  * 这是个正则表达式应用类，用来匹配和替换字串用的
  *
- * author xiaomo
+ * @author xiaomo
  */
 
 public class RegExUtil {
@@ -132,7 +132,7 @@ public class RegExUtil {
      * @since 1.0
      */
 
-    public static String ereg_replace(String pattern, String newstr, String str) throws PatternSyntaxException {
+    public static String eregReplace(String pattern, String newstr, String str) throws PatternSyntaxException {
         Pattern p = Pattern.compile(pattern);
         Matcher m = p.matcher(str);
         return m.replaceAll(newstr);
@@ -142,7 +142,7 @@ public class RegExUtil {
      * 主要用于模板中模块标记分析函数 把查找到的元素加到vector中
      *
      * @param pattern 为正则表达式模式
-     * @param str             原始字串
+     * @param str     原始字串
      * @return vector
      * @since 1.0
      */
@@ -151,7 +151,7 @@ public class RegExUtil {
         Pattern p = Pattern.compile(pattern);
         Matcher m = p.matcher(str);
         while (m.find()) {
-            vector.add(ereg_replace("(\\[\\#)|(\\#\\])", "", m.group()));
+            vector.add(eregReplace("(\\[\\#)|(\\#\\])", "", m.group()));
         }
         return vector;
     }
@@ -161,7 +161,7 @@ public class RegExUtil {
      * 功能主要是把查找到的元素加到vector中
      *
      * @param pattern 为正则表达式模式
-     * @param str             原始字串
+     * @param str     原始字串
      * @since 1.0
      */
     public static String[] splitTags(String pattern, String str) {
@@ -170,7 +170,7 @@ public class RegExUtil {
         String[] array = new String[m.groupCount()];
         int i = 0;
         while (m.find()) {
-            array[i] = ereg_replace("(\\[\\#)|(\\#\\])", "", m.group());
+            array[i] = eregReplace("(\\[\\#)|(\\#\\])", "", m.group());
             i++;
         }
         return array;
@@ -181,7 +181,7 @@ public class RegExUtil {
      * 匹配所有符合模式要求的字串并加到矢量vector数组中
      *
      * @param pattern 为正则表达式模式
-     * @param str             原始字串
+     * @param str     原始字串
      * @return vector
      * @since 1.0
      */
@@ -199,7 +199,7 @@ public class RegExUtil {
      * 匹配所有符合模式要求的字串并加到字符串数组中
      *
      * @param pattern 为正则表达式模式
-     * @param str             原始字串
+     * @param str     原始字串
      * @return array
      * @since 1.0
      */
@@ -259,6 +259,6 @@ public class RegExUtil {
 
 
     public static void main(String[] args) {
-        System.out.println(ereg(ID_CARD,"420325199210211911"));
+        System.out.println(ereg(ID_CARD, "420325199210211911"));
     }
 }

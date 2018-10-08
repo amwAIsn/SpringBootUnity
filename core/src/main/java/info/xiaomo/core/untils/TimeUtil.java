@@ -18,6 +18,8 @@ import java.util.Locale;
 
 /**
  * 时间和日期的工具类
+ *
+ * @author : xiaomo
  */
 public class TimeUtil {
 
@@ -118,7 +120,9 @@ public class TimeUtil {
     public static Date convertStringToDate(String datePattern, String strDate) {
         SimpleDateFormat df;
         Date date;
-        if (strDate.split(SymbolConst.HENGXIAN).length < 2) {//传入的时间是以 / 分割
+        //传入的时间是以 / 分割
+        int length = 2;
+        if (strDate.split(SymbolConst.HENGXIAN).length < length) {
             strDate = strDate.replace(SymbolConst.ZHENGXIEXIAN, SymbolConst.HENGXIAN);
         }
         if (strDate.split(SymbolConst.SPACE).length > 1) {
@@ -140,7 +144,9 @@ public class TimeUtil {
      */
     public static Date convertStringToDate(String strDate) {
         Date aDate;
-        if (strDate.split(SymbolConst.HENGXIAN).length < 2) {//传入的时间是以 / 分割
+        //传入的时间是以 / 分割
+        int length = 2;
+        if (strDate.split(SymbolConst.HENGXIAN).length < length) {
             strDate = strDate.replace(SymbolConst.ZHENGXIEXIAN, SymbolConst.HENGXIAN);
         }
         aDate = convertStringToDate(DATE_PATTERN_WITH_HENGXIAN, strDate);
@@ -282,6 +288,8 @@ public class TimeUtil {
             case "Sun":
                 returnValue = 0;
                 break;
+            default:
+                returnValue = 0;
         }
         return returnValue;
     }
@@ -314,10 +322,12 @@ public class TimeUtil {
         String strReturn = "";
         try {
             String p;
-            if (strDate.length() > 10)
+            int length = 10;
+            if (strDate.length() > length) {
                 p = "yyyy-MM-dd HH:mm:ss";
-            else
+            } else {
                 p = "yyyy-MM-dd";
+            }
             Date d = TimeUtil.convertStringToDate(p, StringUtil.replace(strDate, "T", " "));
             strReturn = TimeUtil.date2Str("EEE d-MMM", d);
 
@@ -336,10 +346,12 @@ public class TimeUtil {
         String strReturn = "";
         try {
             String p;
-            if (strDate.length() > 10)
+            int length = 10;
+            if (strDate.length() > length) {
                 p = "yyyy-MM-dd HH:mm:ss";
-            else
+            } else {
                 p = "yyyy-MM-dd";
+            }
             Date d = TimeUtil.convertStringToDate(p, StringUtil.replace(strDate, "T", " "));
             strReturn = TimeUtil.date2Str("EEE d-MMM hh:mm aaa", d);
 
@@ -371,10 +383,12 @@ public class TimeUtil {
      * @return 字符串
      */
     public static String getDateFromNow(int timeType, int timeNum, String pattern) {
-        if ((pattern == null) || (pattern.equals("")))
+
+        if ((pattern == null) || ("".equals(pattern))) {
             pattern = "yyyy-MM-dd HH:mm:ss";
+        }
         Calendar cld = Calendar.getInstance();
-        Date date = null;
+        Date date;
         DateFormat df = new SimpleDateFormat(pattern);
         cld.set(timeType, cld.get(timeType) + timeNum);
         date = cld.getTime();
@@ -388,8 +402,9 @@ public class TimeUtil {
      * @return 字符串
      */
     public static String getDateNow(String pattern) {
-        if ((pattern == null) || (pattern.equals("")))
+        if ((pattern == null) || ("".equals(pattern))) {
             pattern = "yyyy-MM-dd HH:mm:ss";
+        }
         Calendar cld = Calendar.getInstance();
         DateFormat df = new SimpleDateFormat(pattern);
         return df.format(cld.getTime());
@@ -441,14 +456,22 @@ public class TimeUtil {
     public static boolean isSeason(String date) {
         int getMonth = Integer.parseInt(date.substring(5, 7));
         boolean sign = false;
-        if (getMonth == 3)
+        int monthThree = 3;
+        if (getMonth == monthThree) {
             sign = true;
-        if (getMonth == 6)
+        }
+        int monthSix = 6;
+        if (getMonth == monthSix) {
             sign = true;
-        if (getMonth == 9)
+        }
+        int monthNine = 9;
+        if (getMonth == monthNine) {
             sign = true;
-        if (getMonth == 12)
+        }
+        int maxMonth = 12;
+        if (getMonth == maxMonth) {
             sign = true;
+        }
         return sign;
     }
 
@@ -491,8 +514,6 @@ public class TimeUtil {
      */
     public static String getNowForFileName(int afterDay) {
         GregorianCalendar calendar = new GregorianCalendar();
-//    Date DATE = calendar.getTime();
-
         SimpleDateFormat df = new SimpleDateFormat("yyyyMMddHHmmss");
 
         calendar.set(Calendar.DATE, calendar.get(Calendar.DATE) + afterDay);
@@ -512,10 +533,12 @@ public class TimeUtil {
         java.util.Date date = new Date();
         cld.setTime(date);
         int intMon = cld.get(Calendar.MONTH) + 1;
-        if (intMon < 10)
+        int ten = 10;
+        if (intMon < ten) {
             strMonth = "0" + String.valueOf(intMon);
-        else
+        } else {
             strMonth = String.valueOf(intMon);
+        }
         return strMonth;
     }
 
@@ -544,10 +567,13 @@ public class TimeUtil {
         int intDay = cld.get(Calendar.DAY_OF_MONTH);
         String mons = String.valueOf(intMon);
         String days = String.valueOf(intDay);
-        if (intMon < 10)
+        int ten = 10;
+        if (intMon < ten) {
             mons = "0" + String.valueOf(intMon);
-        if (intDay < 10)
+        }
+        if (intDay < ten) {
             days = "0" + String.valueOf(intDay);
+        }
         return String.valueOf(cld.get(Calendar.YEAR)) + "-" + mons + "-" + days;
     }
 
@@ -718,32 +744,41 @@ public class TimeUtil {
      */
     public static String getLeftTimeString(long leftTime) {
         StringBuilder sb = new StringBuilder();
-        int leftSecond = (int) (leftTime / 1000);// 剩余秒数
-        int second = leftSecond % 60;// 秒数
+        // 剩余秒数
+        int leftSecond = (int) (leftTime / 1000);
+        // 秒数
+        int second = leftSecond % 60;
         if (second > 0) {
             sb.insert(0, second + "秒");
         }
-        int leftMinute = leftSecond / 60;// 剩余分钟数
-        int minute = leftMinute % 60;// 分钟数
+        // 剩余分钟数
+        int leftMinute = leftSecond / 60;
+        // 分钟数
+        int minute = leftMinute % 60;
         if (minute > 0) {
             sb.insert(0, minute + "分");
         }
-        int leftHour = leftMinute / 60;// 剩余小时
+        // 剩余小时
+        int leftHour = leftMinute / 60;
         int hour = leftHour % 24;
         if (hour > 0) {
             sb.insert(0, hour + "小时");
         }
-        int leftDay = leftHour / 24;// 剩余天数
+        // 剩余天数
+        int leftDay = leftHour / 24;
         if (leftDay > 0) {
             sb.insert(0, leftDay + "天");
         }
-        int day = (int) (leftTime / ONE_DAY_IN_MILLISECONDS);// 获取剩余天数
-        if (day > 0) {// 1天及以上的显示剩余天
+        // 获取剩余天数
+        int day = (int) (leftTime / ONE_DAY_IN_MILLISECONDS);
+        // 1天及以上的显示剩余天
+        if (day > 0) {
             sb.append(day).append("天");
             leftTime -= (day * ONE_DAY_IN_MILLISECONDS);
         }
         hour = (int) (leftTime / ONE_HOUR_IN_MILLISECONDS);
-        if (hour > 0 || sb.length() > 0) {// 1小时及以上或者前面显示了天数则后面需要小时
+        // 1小时及以上或者前面显示了天数则后面需要小时
+        if (hour > 0 || sb.length() > 0) {
             sb.append(hour).append("小时");
             leftTime -= (hour * ONE_HOUR_IN_MILLISECONDS);
         }
@@ -846,22 +881,6 @@ public class TimeUtil {
         return Calendar.getInstance().get(Calendar.YEAR);
     }
 
-    public static void main(String args[]) {
-        getFormatDate(TimeUtil.getNowOfMills(), DEFAULT_FORMAT);
-//        System.out.println(getYear());
-//        System.out.println(getYesterday());
-//        System.out.println(isSeason("2002-03-02"));
-//        String cc = "100.123.342";
-//        System.out.println(cc.indexOf(".", 3));
-//        StringTokenizer st = new StringTokenizer(cc, ".");
-//        if (st.countTokens() != 2) {
-//            String event = st.nextToken();
-//            System.out.println("" + event);
-//            String strDate = getDateFromNow(0, "yyyy-MM-dd HH:mm:ss");
-//            System.out.println("DATE:" + strDate);
-//            System.out.println("15:" + strDate.substring(0, 16));
-//        }
-    }
 }
 
 

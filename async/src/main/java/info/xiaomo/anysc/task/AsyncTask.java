@@ -7,10 +7,13 @@ import org.springframework.stereotype.Component;
 import java.util.Random;
 import java.util.concurrent.Future;
 
+/**
+ * @author : xiaomo
+ */
 @Component
 public class AsyncTask {
 
-    private static Random random =new Random();
+    private static Random random = new Random();
 
     @Async
     public Future<String> doTaskOne() throws Exception {

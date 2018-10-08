@@ -18,10 +18,10 @@ import org.springframework.stereotype.Repository;
  * Today the best performance  as tomorrow newest starter!
  * Created by IntelliJ IDEA.
  *
- * author: xiaomo
+ * @author : xiaomo
  * github: https://github.com/xiaomoinfo
  * email: xiaomo@xiaomo.info
-
+ * <p>
  * Date: 16/4/3 10:53
  * Copyright(©) 2015 by xiaomo.
  */
@@ -29,5 +29,11 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserDao extends JpaRepository<UserModel, Long> {
 
+    /**
+     * 根据邮件查
+     *
+     * @param email
+     * @return
+     */
     UserModel findUserByEmail(String email);
 }

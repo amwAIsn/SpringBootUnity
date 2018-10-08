@@ -22,13 +22,15 @@ import java.util.Map.Entry;
 
 /**
  * https 请求 微信为https的请求
+ *
+ * @author : xiaomo
  */
 public class HttpUtil {
 
-    private static final String DEFAULT_CHARSET = "UTF-8"; // 默认字符集
+    private static final String DEFAULT_CHARSET = "UTF-8";
 
-    private static final String _GET = "GET"; // GET
-    private static final String _POST = "POST";// POST
+    private static final String GET = "GET";
+    private static final String POST = "POST";
 
     private final static String USER_COOKIE_KEY = "uid";
     private final static String USER_COOKIE_SECRET = "&#%!&*";
@@ -38,9 +40,9 @@ public class HttpUtil {
      *
      * @throws IOException
      */
-    private static HttpURLConnection initHttp(String url, String method, Map<String, String> headers) throws IOException {
-        URL _url = new URL(url);
-        HttpURLConnection http = (HttpURLConnection) _url.openConnection();
+    private static HttpURLConnection initHttp(String urlStr, String method, Map<String, String> headers) throws IOException {
+        URL url = new URL(urlStr);
+        HttpURLConnection http = (HttpURLConnection) url.openConnection();
         // 连接超时
         http.setConnectTimeout(25000);
         // 读取超时 --服务器响应比较慢，增大时间
@@ -67,14 +69,14 @@ public class HttpUtil {
      * @throws NoSuchProviderException
      * @throws KeyManagementException
      */
-    private static HttpsURLConnection initHttps(String url, String method, Map<String, String> headers) throws IOException, NoSuchAlgorithmException, NoSuchProviderException, KeyManagementException {
+    private static HttpsURLConnection initHttps(String urlStr, String method, Map<String, String> headers) throws IOException, NoSuchAlgorithmException, NoSuchProviderException, KeyManagementException {
         TrustManager[] tm = {new MyX509TrustManager()};
         SSLContext sslContext = SSLContext.getInstance("SSL", "SunJSSE");
         sslContext.init(null, tm, new java.security.SecureRandom());
         // 从上述SSLContext对象中得到SSLSocketFactory对象  
         SSLSocketFactory ssf = sslContext.getSocketFactory();
-        URL _url = new URL(url);
-        HttpsURLConnection http = (HttpsURLConnection) _url.openConnection();
+        URL url = new URL(urlStr);
+        HttpsURLConnection http = (HttpsURLConnection) url.openConnection();
         // 设置域名校验
         http.setHostnameVerifier(new HttpUtil().new TrustAnyHostnameVerifier());
         // 连接超时
@@ -104,9 +106,9 @@ public class HttpUtil {
         try {
             HttpURLConnection http = null;
             if (isHttps(url)) {
-                http = initHttps(initParams(url, params), _GET, headers);
+                http = initHttps(initParams(url, params), GET, headers);
             } else {
-                http = initHttp(initParams(url, params), _GET, headers);
+                http = initHttp(initParams(url, params), GET, headers);
             }
             InputStream in = http.getInputStream();
             BufferedReader read = new BufferedReader(new InputStreamReader(in, DEFAULT_CHARSET));
@@ -138,9 +140,9 @@ public class HttpUtil {
         try {
             HttpURLConnection http = null;
             if (isHttps(url)) {
-                http = initHttps(url, _POST, headers);
+                http = initHttps(url, POST, headers);
             } else {
-                http = initHttp(url, _POST, headers);
+                http = initHttp(url, POST, headers);
             }
             OutputStream out = http.getOutputStream();
             out.write(params.getBytes(DEFAULT_CHARSET));
@@ -191,8 +193,9 @@ public class HttpUtil {
             return url;
         }
         StringBuilder sb = new StringBuilder(url);
-        if (!url.contains("?")) {
-            sb.append("?");
+        String wenhao = "?";
+        if (!url.contains(wenhao)) {
+            sb.append(wenhao);
         }
         sb.append(map2Url(params));
         return sb.toString();
@@ -291,17 +294,18 @@ public class HttpUtil {
      * https 域名校验
      */
     public class TrustAnyHostnameVerifier implements HostnameVerifier {
+        @Override
         public boolean verify(String hostname, SSLSession session) {
-            return true;// 直接返回true
+            return true;
         }
     }
 
 
 }
 
-// 证书管理
 class MyX509TrustManager implements X509TrustManager {
 
+    @Override
     public X509Certificate[] getAcceptedIssuers() {
         return null;
     }

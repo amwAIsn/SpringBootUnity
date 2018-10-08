@@ -1,5 +1,9 @@
 package info.xiaomo.core.constant;
 
+/**
+ * @author qq
+ */
+
 public enum FileConst {
     /**
      * JEPG.
@@ -148,11 +152,11 @@ public enum FileConst {
      */
     MF("4D616E69666573742D56"),
     /**
-     *EXE Archive.
+     * EXE Archive.
      */
     EXE("4D5A9000030000000400"),
     /**
-     *CHM Archive.
+     * CHM Archive.
      */
     CHM("49545346030000006000"),
     /*
@@ -219,7 +223,7 @@ public enum FileConst {
      *
      * @param value
      */
-    private FileConst(String value) {
+    FileConst(String value) {
         this.value = value;
     }
 

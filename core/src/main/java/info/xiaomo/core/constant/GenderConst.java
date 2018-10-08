@@ -6,20 +6,20 @@ package info.xiaomo.core.constant;
  * Today the best performance  as tomorrow newest starter!
  * Created by IntelliJ IDEA.
  *
- * author: xiaomo
+ * @author : xiaomo
  * github: https://github.com/xiaomoinfo
  * email: xiaomo@xiaomo.info
-
+ * <p>
  * Date: 2016/1/12 16:37
  * Description: 性别
  * Copyright(©) 2015 by xiaomo.
  **/
 public interface GenderConst {
 
-    int secret = 0;
+    int SECRET = 0;
 
-    int man = 1;
+    int MAN = 1;
 
-    int woman = 2;
+    int WOMAN = 2;
 
 }

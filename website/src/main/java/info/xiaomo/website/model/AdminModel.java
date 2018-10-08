@@ -23,22 +23,20 @@ import java.io.Serializable;
  * Today the best performance  as tomorrow newest starter!
  * Created by IntelliJ IDEA.
  *
- * author: xiaomo
+ * @author : xiaomo
  * github: https://github.com/xiaomoinfo
  * email: xiaomo@xiaomo.info
-
+ * <p>
  * Date: 16/4/2 12:39
  * Copyright(©) 2015 by xiaomo.
  */
 @Entity
 @Table(name = "adminUser")
-// lomlok
 @Data
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = false)
 @AllArgsConstructor
 @NoArgsConstructor
-// swagger ui
 public class AdminModel extends BaseModel implements Serializable {
 
     @Column(name = "UserName")

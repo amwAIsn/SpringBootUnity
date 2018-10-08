@@ -10,16 +10,22 @@ import org.springframework.stereotype.Repository;
  * Today the best performance  as tomorrow newest starter!
  * Created by IntelliJ IDEA.
  *
- * author: xiaomo
+ * @author : xiaomo
  * github: https://github.com/xiaomoinfo
  * email: xiaomo@xiaomo.info
-
+ * <p>
  * Date: 2016/4/1119:52
  * Copyright(©) 2015 by xiaomo.
  **/
 @Repository
 public interface ChangeLogDao extends JpaRepository<ChangeLogModel, Long> {
 
+    /**
+     * find
+     *
+     * @param name
+     * @return
+     */
     ChangeLogModel findByName(String name);
 
 }

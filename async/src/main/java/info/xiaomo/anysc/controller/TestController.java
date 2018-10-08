@@ -16,10 +16,10 @@ import java.util.concurrent.Future;
  * Today the best performance  as tomorrow newest starter!
  * Created by IntelliJ IDEA.
  *
- * author: xiaomo
+ * @author : xiaomo
  * github: https://github.com/xiaomoinfo
  * email: xiaomo@xiaomo.info
-
+ * <p>
  * Date: 2016/11/15 15:12
  * Description: 用户实体类
  * Copyright(©) 2015 by xiaomo.

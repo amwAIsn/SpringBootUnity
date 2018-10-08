@@ -15,10 +15,10 @@ import java.io.Serializable;
  * Today the best performance  as tomorrow newest starter!
  * Created by IntelliJ IDEA.
  *
- * author: xiaomo
+ * @author : xiaomo
  * github: https://github.com/xiaomoinfo
  * email: xiaomo@xiaomo.info
-
+ * <p>
  * Date: 2016/4/1119:47
  * Copyright(©) 2015 by xiaomo.
  **/

@@ -6,20 +6,23 @@ package info.xiaomo.website.view;
  * Today the best performance  as tomorrow newest starter!
  * Created by IntelliJ IDEA.
  *
- * author: xiaomo
+ * @author : xiaomo
  * github: https://github.com/xiaomoinfo
  * email: xiaomo@xiaomo.info
-
+ * <p>
  * Date: 2016/11/21 11:12
  * Copyright(©) 2015 by xiaomo.
  **/
 
 public enum UserView {
-
+    /**
+     * login
+     */
     LOGIN("login"),
     REGISTER("register"),
     REGISTER_INFO("info"),
-    INDEX("/web/index");
+    INDEX("index"),
+    API("swagger-ui.html");
 
     private String name;
 

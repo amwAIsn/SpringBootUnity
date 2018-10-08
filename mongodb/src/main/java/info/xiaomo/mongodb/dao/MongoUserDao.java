@@ -10,18 +10,24 @@ import org.springframework.stereotype.Repository;
  * Today the best performance  as tomorrow newest starter!
  * Created by IntelliJ IDEA.
  *
- * author: xiaomo
+ * @author : xiaomo
  * github: https://github.com/xiaomoinfo
  * email: xiaomo@xiaomo.info
-
+ * <p>
  * Date: 2016/11/15 15:42
  * Description: 用户实体类
  * Copyright(©) 2015 by xiaomo.
  **/
 
 @Repository
-public interface MongoUserDao extends MongoRepository<MongoUser,Long>{
+public interface MongoUserDao extends MongoRepository<MongoUser, Long> {
 
+    /**
+     * 根据字字查用户
+     *
+     * @param userName
+     * @return
+     */
     MongoUser findByUserName(String userName);
 
 }

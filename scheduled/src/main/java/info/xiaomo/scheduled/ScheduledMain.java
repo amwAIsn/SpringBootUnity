@@ -15,21 +15,21 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  * Today the best performance  as tomorrow newest starter!
  * Created by IntelliJ IDEA.
  *
- * author: xiaomo
+ * @author : xiaomo
  * github: https://github.com/xiaomoinfo
  * email: xiaomo@xiaomo.info
-
- * Date: 2016/4/1 15:38
+ * <p>
+ * Date: 2016/4/1 15:31
  * Description: 任务启动器
  * Copyright(©) 2015 by xiaomo.
  **/
 @Configuration
-@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class,HibernateJpaAutoConfiguration.class})
+@EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class, HibernateJpaAutoConfiguration.class})
 @ComponentScan("info.xiaomo")
 @EnableScheduling
 @EnableAsync
 public class ScheduledMain {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         SpringApplication.run(ScheduledMain.class, args);
     }
 

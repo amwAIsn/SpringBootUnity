@@ -20,10 +20,10 @@ import java.util.concurrent.TimeUnit;
  * Today the best performance  as tomorrow newest starter!
  * Created by IntelliJ IDEA.
  *
- * author: xiaomo
+ * @author : xiaomo
  * github: https://github.com/xiaomoinfo
  * email: xiaomo@xiaomo.info
-
+ * <p>
  * Date: 2016/11/14 18:00
  * Description: 用户实体类
  * Copyright(©) 2015 by xiaomo.
@@ -32,17 +32,17 @@ import java.util.concurrent.TimeUnit;
 @Repository
 public class CommonRedisDaoImpl implements CommonRedisDao {
 
-    private final RedisTemplate<String, String> redisTemplate;
-    /**
-     * 日志记录
-     */
-    private Logger LOGGER = LoggerFactory.getLogger(this.getClass());
     /**
      * 前缀
      */
     private static final String KEY_PREFIX_VALUE = "info:xiaomo:value:";
     private static final String KEY_PREFIX_SET = "info:xiaomo:set:";
     private static final String KEY_PREFIX_LIST = "info:xiaomo:list:";
+    private final RedisTemplate<String, String> redisTemplate;
+    /**
+     * 日志记录
+     */
+    private final Logger LOGGER = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     public CommonRedisDaoImpl(RedisTemplate<String, String> redisTemplate) {
@@ -63,7 +63,9 @@ public class CommonRedisDaoImpl implements CommonRedisDao {
         try {
             ValueOperations<String, String> valueOps = redisTemplate.opsForValue();
             valueOps.set(key, v);
-            if (time > 0) redisTemplate.expire(key, time, TimeUnit.SECONDS);
+            if (time > 0) {
+                redisTemplate.expire(key, time, TimeUnit.SECONDS);
+            }
             return true;
         } catch (Throwable t) {
             LOGGER.error("缓存[" + key + "]失败, value[" + v + "]", t);
@@ -179,7 +181,9 @@ public class CommonRedisDaoImpl implements CommonRedisDao {
         try {
             SetOperations<String, String> valueOps = redisTemplate.opsForSet();
             valueOps.add(key, v);
-            if (time > 0) redisTemplate.expire(key, time, TimeUnit.SECONDS);
+            if (time > 0) {
+                redisTemplate.expire(key, time, TimeUnit.SECONDS);
+            }
             return true;
         } catch (Throwable t) {
             LOGGER.error("缓存[" + key + "]失败, value[" + v + "]", t);
@@ -213,7 +217,9 @@ public class CommonRedisDaoImpl implements CommonRedisDao {
         try {
             SetOperations<String, String> setOps = redisTemplate.opsForSet();
             setOps.add(key, v.toArray(new String[v.size()]));
-            if (time > 0) redisTemplate.expire(key, time, TimeUnit.SECONDS);
+            if (time > 0) {
+                redisTemplate.expire(key, time, TimeUnit.SECONDS);
+            }
             return true;
         } catch (Throwable t) {
             LOGGER.error("缓存[" + key + "]失败, value[" + v + "]", t);
@@ -264,7 +270,9 @@ public class CommonRedisDaoImpl implements CommonRedisDao {
         try {
             ListOperations<String, String> listOps = redisTemplate.opsForList();
             listOps.rightPush(key, v);
-            if (time > 0) redisTemplate.expire(key, time, TimeUnit.SECONDS);
+            if (time > 0) {
+                redisTemplate.expire(key, time, TimeUnit.SECONDS);
+            }
             return true;
         } catch (Throwable t) {
             LOGGER.error("缓存[" + key + "]失败, value[" + v + "]", t);
@@ -298,7 +306,9 @@ public class CommonRedisDaoImpl implements CommonRedisDao {
         try {
             ListOperations<String, String> listOps = redisTemplate.opsForList();
             listOps.rightPushAll(key, v);
-            if (time > 0) redisTemplate.expire(key, time, TimeUnit.SECONDS);
+            if (time > 0) {
+                redisTemplate.expire(key, time, TimeUnit.SECONDS);
+            }
             return true;
         } catch (Throwable t) {
             LOGGER.error("缓存[" + key + "]失败, value[" + v + "]", t);

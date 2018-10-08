@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 /**
- * author 小莫 (https://xiaomo.info) (https://github.com/xiaomoinfo)
+ * @author : xiaomo (https://xiaomo.info) (https://github.com/xiaomoinfo)
  * @created : 2016/12/24 15:09
  */
 
@@ -54,7 +54,7 @@ public class ShikigamiModel extends BaseModel {
 
 
     /**
-     *  N/R/SR/SSR
+     * N/R/SR/SSR
      */
     private String level;
 
@@ -63,7 +63,6 @@ public class ShikigamiModel extends BaseModel {
      * 描述
      */
     private String des;
-
 
 
 }
